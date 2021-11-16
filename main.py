@@ -14,6 +14,8 @@ with open("parties.json","r") as partyFile:
 #partyDict[i] has keys "name","members","extrapoints"
 
 partyRefs = list(partyDict.keys())
-partyNames = []
+
 print(partyRefs)
-print(partyNames)
+
+for i in partyRefs:
+	print("The",partyDict[i]["name"],"Party has",partyDict[i]["members"],"members.")

@@ -8,5 +8,12 @@ class Party():
 	def listAttributes(self):
 		return [self.name, self.points]
 
+with open("parties.json","r") as partyFile:
+	partyDict = filereader.load(partyFile)
+#partyDict is a two-dimensional dictionary
+#partyDict[i] has keys "name","members","extrapoints"
 
-partyList = filereader.load(file open)
+partyRefs = list(partyDict.keys())
+partyNames = []
+print(partyRefs)
+print(partyNames)

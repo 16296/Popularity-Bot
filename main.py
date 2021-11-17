@@ -10,8 +10,6 @@ class Party():
 		self.points = (members*5) + extrapoints
 		self.house = self.points//30 + 1
 
-	
-		
 	def getName(self):
 		return self.name
 	def getMembers(self):
@@ -20,6 +18,12 @@ class Party():
 		return self.points
 	def getHouse(self):
 		return self.house
+	def getExtras(self):
+		return self.extrapoints
+
+	def setExtras(self,newExtra):
+		self.extrapoints = newExtra
+		self.__init__(self.name,self.members,self.extrapoints)
 
 	def setMembers(self,newMembers):
 		self.members = newMembers
@@ -50,28 +54,57 @@ def createObjects():
 
 def outputInfo():
 	for i in partyRefs:
-		print("%s Party has %d counted members, %d calculated\nHouse seats, and %d calculauted Popularity points.\n" % (partyObjects[i].getName(),partyObjects[i].getMembers(),partyObjects[i].getHouse(),partyObjects[i].getPoints()))
+		print("%s Party has %d counted members, %d calculated\nHouse seats, and %d calculauted Popularity points, %d are bonus.\n" % (partyObjects[i].getName(),partyObjects[i].getMembers(),partyObjects[i].getHouse(),partyObjects[i].getPoints(),partyObjects[i].getExtras() ) )
 
-def inputMembers():
-	for i in partyRefs:
-		newMembers = input("\nInput member count for %s Party: " % partyObjects [i].getName())
-		if newMembers.isdigit():
-			partyObjects[i].setMembers(int(newMembers))
-		else:
-			print("\n\nerror invalid data type\n\n")
-			break
+def inputMembers(reference):
+	newMembers = input("\nInput member count for %s Party: " % partyObjects[reference].getName())
+	if newMembers.isdigit():
+		partyObjects[reference].setMembers(int(newMembers))
+	else:
+		print("\n\nerror invalid data type\n\n")
+		inputMembers(reference)
 	saveObjects()
-	
+
+def inputExtras(reference):
+	newExtras = input("\nInput bonus points for %s Party: " % partyObjects[reference].getName())
+	if newExtras.isdigit():
+		partyObjects[reference].setExtras(int(newExtras))
+	else:
+		print("\n\nerror invalid data type\n\n")
+		inputExtras(reference)
+	saveObjects()
+
+def inputData():
+	validChoices = ["members","points"]
+	print("\nINPUT TARGET PARTY REFERENCE: ")
+	reference = input()
+	if reference in partyRefs:
+		valid = False
+		while not valid:
+			print("\nInput members or points?")
+			choice = input()
+			if choice in validChoices:
+				valid = True
+				if choice == "members":
+					inputMembers(reference)
+				elif choice == "points":
+					inputExtras(reference)
+			else:
+				print("\nInvalid input\n")
+	else:
+		print("\nInvalid reference\n")
+		inputData()
+
 def main():
 	createObjects()
 	while True:
-		print("-------------------------------------------\nUNITED PARTIES OF DISCORD ELECTORAL MANAGER\n-------------------------------------------\n1. Display party member counts\n2. Input party member counts ")
+		print("-------------------------------------------\nUNITED PARTIES OF DISCORD ELECTORAL MANAGER\n-------------------------------------------\n1. Display party member counts\n2. Input data")
 		choice = int(input("Input choice (1-2): "))
 		print()
 		if choice == 1:
 			outputInfo()
 		elif choice == 2:
-			inputMembers()
+			inputData()
 		else:
 			print("\n\nError - Invalid input.\n\n")
 

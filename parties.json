@@ -1,37 +1,37 @@
 {
     "mp": {
         "name": "Minarchy",
-        "members": 6,
-        "extrapoints": 0
+        "members": 10,
+        "extrapoints": 10
     },
     "nup": {
         "name": "National Union",
-        "members": 7,
-        "extrapoints": 0
+        "members": 2,
+        "extrapoints": 20
     },
     "ucp": {
         "name": "United Communist",
-        "members": 8,
-        "extrapoints": 0
+        "members": 3,
+        "extrapoints": 40
     },
     "rdp": {
         "name": "Republican-Democrat",
-        "members": 5,
-        "extrapoints": 0
+        "members": 4,
+        "extrapoints": 10
     },
     "sdp": {
         "name": "Social Democrat",
         "members": 5,
-        "extrapoints": 0
+        "extrapoints": 20
     },
     "adp": {
         "name": "American Destiny",
-        "members": 5,
-        "extrapoints": 0
+        "members": 6,
+        "extrapoints": 10
     },
     "ldp": {
         "name": "Liberal Democrat",
-        "members": 5,
-        "extrapoints": 0
+        "members": 7,
+        "extrapoints": 20
     }
 }

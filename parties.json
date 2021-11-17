@@ -1,22 +1,37 @@
-{	"mp":{"name":"Minarchy",
-		"members":21,
-		"extrapoints":0},
-	"nup":{"name":"National Union",
-		"members":55,
-		"extrapoints":0},
-	"sdp":{"name":"Social Democrat",
-		"members":25,
-		"extrapoints":0},
-	"ucp":{"name":"United Communist",
-		"members":34,
-		"extrapoints":0},
-	"rdp":{"name":"Republican-Democrat",
-		"members":11,
-		"extrapoints":0},
-	"adp":{"name":"American Destiny",
-		"members":7,
-		"extrapoints":0},
-	"ldp":{"name":"Liberal Democrat",
-		"members":14,
-		"extrapoints":0}		
+{
+    "mp": {
+        "name": "Minarchy",
+        "members": 6,
+        "extrapoints": 0
+    },
+    "nup": {
+        "name": "National Union",
+        "members": 7,
+        "extrapoints": 0
+    },
+    "ucp": {
+        "name": "United Communist",
+        "members": 8,
+        "extrapoints": 0
+    },
+    "rdp": {
+        "name": "Republican-Democrat",
+        "members": 5,
+        "extrapoints": 0
+    },
+    "sdp": {
+        "name": "Social Democrat",
+        "members": 5,
+        "extrapoints": 0
+    },
+    "adp": {
+        "name": "American Destiny",
+        "members": 5,
+        "extrapoints": 0
+    },
+    "ldp": {
+        "name": "Liberal Democrat",
+        "members": 5,
+        "extrapoints": 0
+    }
 }

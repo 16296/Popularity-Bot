@@ -10,6 +10,8 @@ class Party():
 		self.points = (members*5) + extrapoints
 		self.house = self.points//30 + 1
 
+	
+		
 	def getName(self):
 		return self.name
 	def getMembers(self):
@@ -18,7 +20,20 @@ class Party():
 		return self.points
 	def getHouse(self):
 		return self.house
-	
+
+	def setMembers(self,newMembers):
+		self.members = newMembers
+		self.__init__(self.name,self.members,self.extrapoints)
+
+	def createDict(self):
+		return {"name":self.name,"members":self.members,"extrapoints":self.extrapoints}
+
+def saveObjects():
+	newDict = {}
+	for i in partyRefs:
+		newDict[i] = partyObjects[i].createDict()
+	with open("parties.json","w",encoding="utf-8") as file:
+		filereader.dump(newDict,file,ensure_ascii=False,indent=4) 	
 
 def createObjects():
 	global partyObjects
@@ -37,6 +52,16 @@ def outputInfo():
 	for i in partyRefs:
 		print("%s Party has %d counted members, %d calculated\nHouse seats, and %d calculauted Popularity points.\n" % (partyObjects[i].getName(),partyObjects[i].getMembers(),partyObjects[i].getHouse(),partyObjects[i].getPoints()))
 
+def inputMembers():
+	for i in partyRefs:
+		newMembers = input("\nInput member count for %s Party: " % partyObjects [i].getName())
+		if newMembers.isdigit():
+			partyObjects[i].setMembers(int(newMembers))
+		else:
+			print("\n\nerror invalid data type\n\n")
+			break
+	saveObjects()
+	
 def main():
 	createObjects()
 	while True:
@@ -46,7 +71,7 @@ def main():
 		if choice == 1:
 			outputInfo()
 		elif choice == 2:
-			print()
+			inputMembers()
 		else:
 			print("\n\nError - Invalid input.\n\n")
 
